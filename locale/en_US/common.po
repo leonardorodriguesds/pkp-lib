@@ -95,6 +95,9 @@ msgstr "Tasks"
 msgid "common.list"
 msgstr "List"
 
+msgid "common.state"
+msgstr "State"
+
 msgid "common.grid"
 msgstr "Grid"
 
@@ -188,8 +191,23 @@ msgstr "Error"
 msgid "common.notice"
 msgstr "Notice"
 
+msgid "common.captcha.error.missing-input-secret"
+msgstr "The captcha validation for this website is not configured correctly. The secret key is missing."
+
+msgid "common.captcha.error.invalid-input-secret"
+msgstr "The captcha validation for this website is not configured correctly. The secret key is invalid."
+
 msgid "common.captcha.error.missing-input-response"
 msgstr "You must complete the validation check used to prevent spam submissions."
+
+msgid "common.captcha.error.invalid-input-response"
+msgstr "You did not pass the validation check used to prevent spam submissions."
+
+msgid "common.captchaField.description"
+msgstr "Please enter the letters as they appear in the image above."
+
+msgid "common.captchaField"
+msgstr "Validation"
 
 msgid "common.ccLicense"
 msgstr ""
@@ -1756,27 +1774,6 @@ msgstr "Navigation menu was succesfully updated"
 
 msgid "notification.removedNavigationMenu"
 msgstr "Navigation menu was succesfully removed"
-
-msgid "notification.unsubscribeNotifications.success"
-msgstr "You have been unsubscribed"
-
-msgid "notification.unsubscribeNotifications.error"
-msgstr "We could not unsubscribe you"
-
-msgid "notification.unsubscribeNotifications.pageMessage"
-msgstr "Select the emails that you no longer wish to receive at {$email} from {$contextName}."
-
-msgid "notification.unsubscribeNotifications.resubscribe"
-msgstr "You can resubscribe to email notifications at any time from your <a href=\"{$profileNotificationUrl}\">user profile</a>."
-
-msgid "notification.unsubscribeNotifications.successMessage"
-msgstr "The email address {$email} has been successfully unsubscribed. We'll no longer send you those emails. You can resubscribe to email notifications at any time from your <a href=\"{$profileNotificationUrl}\">user profile</a>."
-
-msgid "notification.unsubscribeNotifications.errorMessage"
-msgstr "There was an unexpected error and we could not unsubscribe the email address {$email}. You can unsubscribe from all email notifications in your <a href=\"{$profileNotificationUrl}\">user profile</a> or contact us directly for help."
-
-msgid "notification.unsubscribeNotifications"
-msgstr "Unsubscribe"
 
 msgid "list.viewMore"
 msgstr "Show more details about {$name}"

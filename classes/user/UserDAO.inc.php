@@ -334,6 +334,9 @@ class UserDAO extends DAO {
 	 */
 	function getAdditionalFieldNames() {
 		return array_merge(parent::getAdditionalFieldNames(), [
+			// CIADS - 05/04/2021 - Leonardo Rodrigues de Souza
+			'state',
+			'titration',
 			'orcid',
 			'apiKey',
 			'apiKeyEnabled',

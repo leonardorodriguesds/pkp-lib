@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:22-07:00\n"
-"PO-Revision-Date: 2021-03-04 13:41+0000\n"
+"PO-Revision-Date: 2020-12-01 11:47+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "es_ES/>\n"
@@ -139,6 +139,9 @@ msgstr "Texto alternativo"
 
 msgid "common.and"
 msgstr "y"
+
+msgid "common.state"
+msgstr "Estado"
 
 msgid "common.applyAction"
 msgstr "Continuar"
@@ -597,7 +600,7 @@ msgid "common.status"
 msgstr "Estado"
 
 msgid "common.subject"
-msgstr "Asunto"
+msgstr "Materia"
 
 msgid "common.subjects"
 msgstr "Asuntos"
@@ -774,13 +777,13 @@ msgid "email.skip"
 msgstr "Omitir correo electrónico"
 
 msgid "email.subject"
-msgstr "Asunto"
+msgstr "Materia"
 
 msgid "email.subjectRequired"
-msgstr "Proporcione el asunto del correo electrónico."
+msgstr "Proporcione un asunto de correo electrónico."
 
 msgid "email.bodyRequired"
-msgstr "Proporcione el cuerpo del correo electrónico."
+msgstr "Proporcione el cuerpo de texto del correo electrónico."
 
 msgid "email.to"
 msgstr "Para"
@@ -1624,8 +1627,8 @@ msgstr "Acepte este elemento."
 
 msgid "notification.type.editorialReport.contents"
 msgstr ""
-"Le recordamos amablemente que compruebe la salud de su revista a través del "
-"informe editorial."
+"Esto es un amable recordatorio para que compruebe la salud de su revista a "
+"través del informe editorial."
 
 msgid "notification.type.editorialReport"
 msgstr "Resumen del informe de estadísticas."
