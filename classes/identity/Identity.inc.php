@@ -145,21 +145,21 @@ class Identity extends DataObject {
 	 * @return string
 	 */
 	function getLocalizedFamilyName($defaultLocale = null) {
-		// Prioritize the current locale, then the default locale.
-		$localePriorityList = [AppLocale::getLocale()];
+		$localePriorityList = array();
+
 		if (!is_null($defaultLocale)) {
 			$localePriorityList[] = $defaultLocale;
 		}
+		
+		$localePriorityList[] = AppLocale::getLocale();
 
 		foreach ($localePriorityList as $locale) {
 			$givenName = $this->getGivenName($locale);
-			// Only use the family name if a given name exists (to avoid mixing locale data)
 			if (!empty($givenName)) {
 				return $this->getFamilyName($locale);
 			}
 		}
 
-		// Fall back on the site locale if nothing else was found. (May mix locale data.)
 		$site = Application::get()->getRequest()->getSite();
 		$locale = $site->getPrimaryLocale();
 		return $this->getFamilyName($locale);
@@ -308,6 +308,46 @@ class Identity extends DataObject {
 	 */
 	function setBiography($biography, $locale) {
 		$this->setData('biography', $biography, $locale);
+	}
+
+	// CIADS - 05/04/2021 - Leonardo Rodrigues de Souza
+	/**
+	 * Get State.
+	 * @return string
+	 */
+	function getState() {
+		return $this->getData('state');
+	}
+
+	/**
+	 * Set State.
+	 * @param $state string
+	 */
+	function setState($state) {
+		$this->setData('state', $state);
+	}
+
+	/**
+	 * Get Titration.
+	 * @return string
+	 */
+	function getTitration($locale) {
+		return $this->getData('titration', $locale);
+	}
+
+	/**
+	 * Get the localized Titration
+	 */
+	function getLocalizedTitration() {
+		return $this->getLocalizedData('titration');
+	}
+
+	/**
+	 * Set Titration.
+	 * @param $titration string
+	 */
+	function setTitration($titration, $locale) {
+		$this->setData('titration', $titration, $locale);
 	}
 
 }
