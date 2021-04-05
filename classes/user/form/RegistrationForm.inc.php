@@ -53,6 +53,9 @@ class RegistrationForm extends Form {
 
 		$this->addCheck(new FormValidator($this, 'country', 'required', 'user.profile.form.countryRequired'));
 
+		// CIADS - 05/04/2021 - Leonardo Rodrigues de Souza
+		$this->addCheck(new FormValidator($this, 'state', 'required', 'user.profile.form.stateRequired'));
+
 		// Email checks
 		$this->addCheck(new FormValidatorEmail($this, 'email', 'required', 'user.profile.form.emailRequired'));
 		$this->addCheck(new FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailExists', array(DAORegistry::getDAO('UserDAO'), 'userExistsByEmail'), array(), true));
@@ -87,9 +90,15 @@ class RegistrationForm extends Form {
 	function fetch($request, $template = null, $display = false) {
 		$templateMgr = TemplateManager::getManager($request);
 		$site = $request->getSite();
+		$context = $request->getContext();
 
 		if ($this->captchaEnabled) {
-			$templateMgr->assign('recaptchaPublicKey', Config::getVar('captcha', 'recaptcha_public_key'));
+			$publicKey = Config::getVar('captcha', 'recaptcha_public_key');
+			$reCaptchaHtml = '<div class="g-recaptcha" data-sitekey="' . $publicKey . '"></div>';
+			$templateMgr->assign(array(
+				'reCaptchaHtml' => $reCaptchaHtml,
+				'captchaEnabled' => true,
+			));
 		}
 
 		$isoCodes = new \Sokil\IsoCodes\IsoCodesFactory();
@@ -104,12 +113,12 @@ class RegistrationForm extends Form {
 		$userFormHelper = new UserFormHelper();
 		$userFormHelper->assignRoleContent($templateMgr, $request);
 
-		$templateMgr->assign([
+		$templateMgr->assign(array(
 			'source' =>$request->getUserVar('source'),
 			'minPasswordLength' => $site->getMinPasswordLength(),
 			'enableSiteWidePrivacyStatement' => Config::getVar('general', 'sitewide_privacy_statement'),
 			'siteWidePrivacyStatement' => $site->getData('privacyStatement'),
-		]);
+		));
 
 		return parent::fetch($request, $template, $display);
 	}
@@ -137,8 +146,10 @@ class RegistrationForm extends Form {
 			'givenName',
 			'familyName',
 			'affiliation',
+			'titration',
 			'email',
 			'country',
+			'state',
 			'interests',
 			'emailConsent',
 			'privacyConsent',
@@ -206,7 +217,7 @@ class RegistrationForm extends Form {
 	 * Register a new user.
 	 * @return int|null User ID, or false on failure
 	 */
-	function execute(...$functionArgs) {
+	function execute(...$functionArgs) {$user->setAffiliation($this->getData('affiliation'), $currentLocale);
 		$requireValidation = Config::getVar('email', 'require_validation');
 		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 
@@ -227,12 +238,20 @@ class RegistrationForm extends Form {
 		$user->setFamilyName($this->getData('familyName'), $currentLocale);
 		$user->setEmail($this->getData('email'));
 		$user->setCountry($this->getData('country'));
+
+		// CIADS - 05/04/2021 - Leonardo Rodrigues de Souza
+		$user->setState($this->getData('state'));
+		$user->setTitration($this->getData('titration'), $currentLocale);
+
 		$user->setAffiliation($this->getData('affiliation'), $currentLocale);
 
 		if ($sitePrimaryLocale != $currentLocale) {
 			$user->setGivenName($this->getData('givenName'), $sitePrimaryLocale);
 			$user->setFamilyName($this->getData('familyName'), $sitePrimaryLocale);
 			$user->setAffiliation($this->getData('affiliation'), $sitePrimaryLocale);
+
+			// CIADS - 05/04/2021 - Leonardo Rodrigues de Souza
+			$user->setTitration($this->getData('titration'), $sitePrimaryLocale);
 		}
 
 		$user->setDateRegistered(Core::getCurrentDate());
