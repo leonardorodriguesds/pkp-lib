@@ -140,6 +140,9 @@ msgstr "Texto alternativo"
 msgid "common.and"
 msgstr "y"
 
+msgid "common.state"
+msgstr "Estado"
+
 msgid "common.applyAction"
 msgstr "Continuar"
 

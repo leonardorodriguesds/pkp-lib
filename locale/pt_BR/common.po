@@ -267,6 +267,9 @@ msgstr "Copiar"
 msgid "common.country"
 msgstr "País"
 
+msgid "common.state"
+msgstr "Estado"
+
 msgid "common.create"
 msgstr "Criar"
 

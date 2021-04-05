@@ -27,6 +27,7 @@ class ContactForm extends BaseProfileForm {
 		// Validation checks for this form
 		$this->addCheck(new FormValidatorEmail($this, 'email', 'required', 'user.profile.form.emailRequired'));
 		$this->addCheck(new FormValidator($this, 'country', 'required', 'user.profile.form.countryRequired'));
+		$this->addCheck(new FormValidator($this, 'state', 'required', 'user.profile.form.stateRequired'));
 		$this->addCheck(new FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailExists', array(DAORegistry::getDAO('UserDAO'), 'userExistsByEmail'), array($user->getId(), true), true));
 	}
 
@@ -64,6 +65,9 @@ class ContactForm extends BaseProfileForm {
 			'mailingAddress' => $user->getMailingAddress(),
 			'affiliation' => $user->getAffiliation(null), // Localized
 			'userLocales' => $user->getLocales(),
+			// CIADS - 05/04/2021 - Leonardo Rodrigues de Souza
+			'state' => $user->getState(),
+			'titration' => $user->getTitration(null), // Localized
 		);
 	}
 
@@ -74,7 +78,7 @@ class ContactForm extends BaseProfileForm {
 		parent::readInputData();
 
 		$this->readUserVars(array(
-			'country', 'email', 'signature', 'phone', 'mailingAddress', 'affiliation', 'userLocales',
+			'country', 'state', 'titration', 'email', 'signature', 'phone', 'mailingAddress', 'affiliation', 'userLocales',
 		));
 
 		if ($this->getData('userLocales') == null || !is_array($this->getData('userLocales'))) {
@@ -90,11 +94,13 @@ class ContactForm extends BaseProfileForm {
 		$user = $this->getUser();
 
 		$user->setCountry($this->getData('country'));
+		$user->setState($this->getData('state'));
 		$user->setEmail($this->getData('email'));
 		$user->setSignature($this->getData('signature'), null); // Localized
 		$user->setPhone($this->getData('phone'));
 		$user->setMailingAddress($this->getData('mailingAddress'));
 		$user->setAffiliation($this->getData('affiliation'), null); // Localized
+		$user->setTitration($this->getData('titration'), null); // Localized
 
 		$request = Application::get()->getRequest();
 		$site = $request->getSite();

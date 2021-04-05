@@ -27,6 +27,12 @@ msgstr ""
 msgid "user.affiliations"
 msgstr "Outras Afiliações"
 
+msgid "user.state"
+msgstr "Estado"
+
+msgid "user.titration"
+msgstr "Titularidade"
+
 msgid "user.authorization.accessDenied"
 msgstr "Acesso negado."
 
@@ -217,6 +223,12 @@ msgstr "Editar perfil"
 
 msgid "user.profile.form.countryRequired"
 msgstr "O país é obrigatório."
+
+msgid "user.profile.form.stateRequired"
+msgstr "O estado é obrigatório."
+
+msgid "user.profile.form.titrationRequired"
+msgstr "O titularidade é obrigatório."
 
 msgid "user.profile.form.emailRequired"
 msgstr "Endereço de e-mail válido obrigatório."

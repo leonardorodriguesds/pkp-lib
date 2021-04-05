@@ -95,6 +95,9 @@ msgstr "Tasks"
 msgid "common.list"
 msgstr "List"
 
+msgid "common.state"
+msgstr "State"
+
 msgid "common.grid"
 msgstr "Grid"
 

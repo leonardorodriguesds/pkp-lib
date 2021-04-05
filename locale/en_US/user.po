@@ -23,6 +23,12 @@ msgstr "(Your institution, e.g. \"Simon Fraser University\")"
 msgid "user.affiliations"
 msgstr "Affiliations"
 
+msgid "user.state"
+msgstr "State"
+
+msgid "user.titration"
+msgstr "Titration"
+
 msgid "user.authorization.accessDenied"
 msgstr "Access denied."
 

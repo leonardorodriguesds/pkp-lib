@@ -310,6 +310,46 @@ class Identity extends DataObject {
 		$this->setData('biography', $biography, $locale);
 	}
 
+	// CIADS - 05/04/2021 - Leonardo Rodrigues de Souza
+	/**
+	 * Get State.
+	 * @return string
+	 */
+	function getState() {
+		return $this->getData('state');
+	}
+
+	/**
+	 * Set State.
+	 * @param $state string
+	 */
+	function setState($state) {
+		$this->setData('state', $state);
+	}
+
+	/**
+	 * Get Titration.
+	 * @return string
+	 */
+	function getTitration($locale) {
+		return $this->getData('titration', $locale);
+	}
+
+	/**
+	 * Get the localized Titration
+	 */
+	function getLocalizedTitration() {
+		return $this->getLocalizedData('titration');
+	}
+
+	/**
+	 * Set Titration.
+	 * @param $titration string
+	 */
+	function setTitration($titration, $locale) {
+		$this->setData('titration', $titration, $locale);
+	}
+
 }
 
 

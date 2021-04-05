@@ -112,12 +112,14 @@ class UserDetailsForm extends UserForm {
 				'preferredPublicName' => $user->getPreferredPublicName(null), // Localized
 				'signature' => $user->getSignature(null), // Localized
 				'affiliation' => $user->getAffiliation(null), // Localized
+				'titration' => $user->getTitration(null), // Localized
 				'email' => $user->getEmail(),
 				'userUrl' => $user->getUrl(),
 				'phone' => $user->getPhone(),
 				'orcid' => $user->getOrcid(),
 				'mailingAddress' => $user->getMailingAddress(),
 				'country' => $user->getCountry(),
+				'state' => $user->getState(),
 				'biography' => $user->getBiography(null), // Localized
 				'interests' => $interestManager->getInterestsForUser($user),
 				'userLocales' => $user->getLocales(),
@@ -134,11 +136,13 @@ class UserDetailsForm extends UserForm {
 				'givenName' => $author->getGivenName(null), // Localized
 				'familyName' => $author->getFamilyName(null), // Localized
 				'affiliation' => $author->getAffiliation(null), // Localized
+				'titration' => $user->getTitration(null), // Localized
 				'preferredPublicName' => $author->getPreferredPublicName(null), // Localized
 				'email' => $author->getEmail(),
 				'userUrl' => $author->getUrl(),
 				'orcid' => $author->getOrcid(),
 				'country' => $author->getCountry(),
+				'state' => $user->getState(),
 				'biography' => $author->getBiography(null), // Localized
 			);
 		} else {
@@ -209,12 +213,14 @@ class UserDetailsForm extends UserForm {
 			'preferredPublicName',
 			'signature',
 			'affiliation',
+			'titration',
 			'email',
 			'userUrl',
 			'phone',
 			'orcid',
 			'mailingAddress',
 			'country',
+			'state',
 			'biography',
 			'gossip',
 			'interests',
@@ -267,6 +273,11 @@ class UserDetailsForm extends UserForm {
 		$this->user->setBiography($this->getData('biography'), null); // Localized
 		$this->user->setMustChangePassword($this->getData('mustChangePassword') ? 1 : 0);
 		$this->user->setAuthId((int) $this->getData('authId'));
+
+		// CIADS - 05/04/2021 - Leonardo Rodrigues de Souza
+		$this->user->setState($this->getData('state'));
+		$this->user->setTitration($this->getData('titration'), null); // Localized
+
 		// Users can never view/edit their own gossip fields
 		import('classes.core.Services');
 		$userService = Services::get('user');
