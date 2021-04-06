@@ -27,7 +27,6 @@ class ContactForm extends BaseProfileForm {
 		// Validation checks for this form
 		$this->addCheck(new FormValidatorEmail($this, 'email', 'required', 'user.profile.form.emailRequired'));
 		$this->addCheck(new FormValidator($this, 'country', 'required', 'user.profile.form.countryRequired'));
-		$this->addCheck(new FormValidator($this, 'state', 'required', 'user.profile.form.stateRequired'));
 		$this->addCheck(new FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailExists', array(DAORegistry::getDAO('UserDAO'), 'userExistsByEmail'), array($user->getId(), true), true));
 	}
 
@@ -42,11 +41,15 @@ class ContactForm extends BaseProfileForm {
 			$countries[$country->getAlpha2()] = $country->getLocalName();
 		}
 		asort($countries);
+		
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign(array(
 			'countries' => $countries,
 			'availableLocales' => $site->getSupportedLocaleNames(),
 		));
+		
+		// CIADS
+		\HookRegistry::call('API::submissions::fetch::variables', array(&$templateMgr));
 
 		return parent::fetch($request, $template, $display);
 	}

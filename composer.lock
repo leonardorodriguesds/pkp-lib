@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "36975c527e01f69bd27eacb9f7eed697",
+    "content-hash": "23ff94f72884198a1a165347b437dc4c",
     "packages": [
         {
             "name": "adodb/adodb-php",
@@ -1777,6 +1777,152 @@
                 }
             ],
             "time": "2020-10-18T11:50:25+00:00"
+        },
+        {
+            "name": "menarasolutions/geographer",
+            "version": "v0.3.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/MenaraSolutions/geographer.git",
+                "reference": "1ab992dd8684e2a8027c4896b3cdadaad96046d3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/MenaraSolutions/geographer/zipball/1ab992dd8684e2a8027c4896b3cdadaad96046d3",
+                "reference": "1ab992dd8684e2a8027c4896b3cdadaad96046d3",
+                "shasum": ""
+            },
+            "require": {
+                "menarasolutions/geographer-data": "^0.1.0",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "dev-master",
+                "illuminate/support": "5.*",
+                "menarasolutions/geographer-de": "0.*",
+                "menarasolutions/geographer-nl": "0.*",
+                "menarasolutions/geographer-ru": "0.*",
+                "phpunit/phpunit": "4.*|5.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "MenaraSolutions\\Geographer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Denis Mysenko",
+                    "email": "denis@menara.com.au",
+                    "homepage": "https://www.menara.com.au"
+                }
+            ],
+            "description": "A PHP library that knows how any country, state or city is called in any language",
+            "homepage": "https://github.com/MenaraSolutions/geographer",
+            "keywords": [
+                "geo",
+                "geolocation",
+                "geonames",
+                "localization"
+            ],
+            "support": {
+                "issues": "https://github.com/MenaraSolutions/geographer/issues",
+                "source": "https://github.com/MenaraSolutions/geographer/tree/v0.3.9"
+            },
+            "time": "2020-05-19T23:05:12+00:00"
+        },
+        {
+            "name": "menarasolutions/geographer-data",
+            "version": "v0.1.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/MenaraSolutions/geographer-data.git",
+                "reference": "84a8f387772c6094ae726e9755caa3f303f40de1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/MenaraSolutions/geographer-data/zipball/84a8f387772c6094ae726e9755caa3f303f40de1",
+                "reference": "84a8f387772c6094ae726e9755caa3f303f40de1",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "MenaraSolutions\\Geographer\\Helpers\\": "helpers/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Denis Mysenko",
+                    "email": "denis@menara.com.au",
+                    "homepage": "https://www.menara.com.au"
+                }
+            ],
+            "description": "Basic data package for Geographer - countries and their subdivisions",
+            "homepage": "https://github.com/MenaraSolutions/geographer-data",
+            "keywords": [
+                "geographer",
+                "geolocation",
+                "localization"
+            ],
+            "support": {
+                "issues": "https://github.com/MenaraSolutions/geographer-data/issues",
+                "source": "https://github.com/MenaraSolutions/geographer-data/tree/v0.1.10"
+            },
+            "time": "2020-03-31T06:40:33+00:00"
+        },
+        {
+            "name": "menarasolutions/geographer-es",
+            "version": "0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/MenaraSolutions/geographer-es.git",
+                "reference": "9461ce85e85fa0d1d7c4abc2036737b3f6ba37a2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/MenaraSolutions/geographer-es/zipball/9461ce85e85fa0d1d7c4abc2036737b3f6ba37a2",
+                "reference": "9461ce85e85fa0d1d7c4abc2036737b3f6ba37a2",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Denis Mysenko",
+                    "email": "denis@menara.com.au",
+                    "homepage": "https://www.menara.com.au"
+                }
+            ],
+            "description": "Spanish translations for Geographer library",
+            "homepage": "https://github.com/MenaraSolutions/geographer-es",
+            "keywords": [
+                "geographer",
+                "geolocation",
+                "localization",
+                "spanish"
+            ],
+            "support": {
+                "issues": "https://github.com/MenaraSolutions/geographer-es/issues",
+                "source": "https://github.com/MenaraSolutions/geographer-es/tree/master"
+            },
+            "time": "2016-10-02T08:31:57+00:00"
         },
         {
             "name": "michelf/php-markdown",
@@ -7571,5 +7717,5 @@
     "platform-overrides": {
         "php": "7.3.0"
     },
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.0.0"
 }
